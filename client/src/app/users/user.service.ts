@@ -1,10 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { User, UserRole } from './user';
 import { Company } from '../company-list/company';
+import { User, UserRole } from './user';
 
 /**
  * Service that provides the interface for getting information
@@ -77,9 +77,17 @@ export class UserService {
    * @param id the ID of the desired user
    * @returns an `Observable` containing the resulting user.
    */
-  getUserById(id: string): Observable<User> {
+  getUserById(id: string): Observable<User | { help: string, httpResponse: string, message: string }> {
     // The input to get could also be written as (this.userUrl + '/' + id)
-    return this.httpClient.get<User>(`${this.userUrl}/${id}`);
+    return this.httpClient.get<User>(`${this.userUrl}/${id}`).pipe(
+      catchError(err => {
+        console.error('HTTP error:', err);
+        return of({
+          help: 'There was a problem loading the user - try again.',
+          httpResponse: err.message,
+          message: err.error?.title
+        });
+      }));
   }
 
   /**
@@ -119,6 +127,6 @@ export class UserService {
 
   addUser(newUser: Partial<User>): Observable<string> {
     // Send post request to add a new user with the user data as the body.
-    return this.httpClient.post<{id: string}>(this.userUrl, newUser).pipe(map(res => res.id));
+    return this.httpClient.post<{ id: string }>(this.userUrl, newUser).pipe(map(res => res.id));
   }
 }

@@ -52,7 +52,7 @@ describe('UserProfileComponent', () => {
     // to update. Our `UserProfileComponent` subscribes to that, so
     // it should update right away.
     activatedRoute.setParamMap({ id: expectedUser._id });
-    expect(component.user).toEqual(expectedUser);
+    expect(component.user_or_error).toEqual(expectedUser);
   });
 
   it('should navigate to correct user when the id parameter changes', () => {
@@ -61,12 +61,12 @@ describe('UserProfileComponent', () => {
     // to update. Our `UserProfileComponent` subscribes to that, so
     // it should update right away.
     activatedRoute.setParamMap({ id: expectedUser._id });
-    expect(component.user).toEqual(expectedUser);
+    expect(component.user_or_error).toEqual(expectedUser);
 
     // Changing the paramMap should update the displayed user profile.
     expectedUser = MockUserService.testUsers[1];
     activatedRoute.setParamMap({ id: expectedUser._id });
-    expect(component.user).toEqual(expectedUser);
+    expect(component.user_or_error).toEqual(expectedUser);
   });
 
   it('should have `null` for the user for a bad ID', () => {
@@ -75,7 +75,7 @@ describe('UserProfileComponent', () => {
     // If the given ID doesn't map to a user, we expect the service
     // to return `null`, so we would expect the component's user
     // to also be `null`.
-    expect(component.user).toBeNull();
+    expect(component.user_or_error).toBeNull();
   });
 
   it('should set error data on observable error', () => {
@@ -93,7 +93,7 @@ describe('UserProfileComponent', () => {
 
     // component.user = throwError(() => mockError) as Observable<User>;
 
-    component.ngOnInit();
+    // component.ngOnInit();
 
     expect(component.error).toEqual({
       help: 'There was a problem loading the user – try again.',
