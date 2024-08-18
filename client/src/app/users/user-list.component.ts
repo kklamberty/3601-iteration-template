@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -37,6 +37,9 @@ import { UserService } from './user.service';
 })
 
 export class UserListComponent implements OnInit, OnDestroy  {
+  private userService = inject(UserService);
+  private snackBar = inject(MatSnackBar);
+
   // These are public so that tests can reference them (.spec.ts)
   public serverFilteredUsers: User[];
   public filteredUsers: User[];
@@ -49,19 +52,6 @@ export class UserListComponent implements OnInit, OnDestroy  {
 
   errMsg = '';
   private ngUnsubscribe = new Subject<void>();
-
-
-  /**
-   * This constructor injects both an instance of `UserService`
-   * and an instance of `MatSnackBar` into this component.
-   * `UserService` lets us interact with the server.
-   *
-   * @param userService the `UserService` used to get users from the server
-   * @param snackBar the `MatSnackBar` used to display feedback
-   */
-  constructor(private userService: UserService, private snackBar: MatSnackBar) {
-    // Nothing here – everything is in the injection parameters.
-  }
 
   /**
    * Get the users from the server, filtered by the role and age specified

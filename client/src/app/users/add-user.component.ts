@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +19,9 @@ import { UserService } from './user.service';
     imports: [FormsModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatButtonModule]
 })
 export class AddUserComponent {
+  private userService = inject(UserService);
+  private snackBar = inject(MatSnackBar);
+  private router = inject(Router);
 
   addUserForm = new FormGroup({
     // We allow alphanumeric input and limit the length for name.
@@ -67,7 +70,6 @@ export class AddUserComponent {
     ])),
   });
 
-
   // We can only display one error at a time,
   // the order the messages are defined in is the order they will display in.
   readonly addUserValidationMessages = {
@@ -95,12 +97,6 @@ export class AddUserComponent {
       { type: 'pattern', message: 'Role must be Admin, Editor, or Viewer' },
     ]
   };
-
-  constructor(
-    private userService: UserService,
-    private snackBar: MatSnackBar,
-    private router: Router) {
-  }
 
   formControlHasError(controlName: string): boolean {
     return this.addUserForm.get(controlName).invalid &&

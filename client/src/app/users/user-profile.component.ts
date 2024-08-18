@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -16,6 +16,10 @@ import { UserService } from './user.service';
     imports: [UserCardComponent, MatCardModule]
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
+  private snackBar = inject(MatSnackBar);
+  private route = inject(ActivatedRoute);
+  private userService = inject(UserService);
+
   user: User;
   error: { help: string, httpResponse: string, message: string };
 
@@ -24,8 +28,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   // destroyed. That can be used ot tell any subscriptions to
   // terminate, allowing the system to free up their resources (like memory).
   private ngUnsubscribe = new Subject<void>();
-
-  constructor(private snackBar: MatSnackBar, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit(): void {
     // The `map`, `switchMap`, and `takeUntil` are all RXJS operators, and
