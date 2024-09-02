@@ -118,10 +118,10 @@ describe('Add user', () => {
       cy.wait('@addUser');
 
       // New URL should end in the 24 hex character Mongo ID of the newly added user.
-      // We'll wait up to 10 seconds for this these `should()` assertions to succeed.
+      // We'll wait up to five full minutes for this these `should()` assertions to succeed.
       // Hopefully that long timeout will help ensure that our Cypress tests pass in
       // GitHub Actions, where we're often running on slow VMs.
-      cy.url({ timeout: 10000 })
+      cy.url({ timeout: 300000 })
         .should('match', /\/users\/[0-9a-fA-F]{24}$/)
         .should('not.match', /\/users\/new$/);
 
