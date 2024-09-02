@@ -5,7 +5,8 @@ const page = new UserListPage();
 describe('User list', () => {
 
   before(() => {
-    cy.task('seed:database');
+      // Wait up to 30 seconds for the seeding to complete.
+      cy.task('seed:database', null, { timeout: 30000 } );
   });
 
   beforeEach(() => {

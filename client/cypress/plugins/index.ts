@@ -19,6 +19,9 @@ const mongoDb = process.env.MONGO_DB || 'dev';
 const mongoUri = `mongodb://${mongoHost}/${mongoDb}`;
 const dbSeedDir = '../database/seed';
 
+// We're not using `_config` anywhere, so it's OK that it's not
+// used.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pluginConfig: Cypress.PluginConfig = (on, _config) => {
   // `on` is used to hook into various events Cypress emits
   // `_config` is the resolved Cypress config

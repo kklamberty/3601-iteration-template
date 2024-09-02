@@ -80,7 +80,8 @@ describe('Add user', () => {
 
   describe('Adding a new user', () => {
     beforeEach(() => {
-      cy.task('seed:database');
+      // Wait up to 30 seconds for the seeding to complete.
+      cy.task('seed:database', null, { timeout: 30000 } );
     });
 
     it('Should go to the right page, and have the right info', () => {
