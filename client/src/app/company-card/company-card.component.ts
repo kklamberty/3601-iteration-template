@@ -4,11 +4,10 @@ import { MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle }
 import { MatList, MatListItem } from '@angular/material/list';
 
 @Component({
-  selector: 'app-company-card',
-  standalone: true,
-  imports: [MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatList, MatListItem],
-  templateUrl: './company-card.component.html',
-  styleUrl: './company-card.component.scss'
+    selector: 'app-company-card',
+    imports: [MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent, MatList, MatListItem],
+    templateUrl: './company-card.component.html',
+    styleUrl: './company-card.component.scss'
 })
 export class CompanyCardComponent {
   @Input() company: Company;

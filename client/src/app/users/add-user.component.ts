@@ -15,7 +15,6 @@ import { UserService } from './user.service';
     selector: 'app-add-user',
     templateUrl: './add-user.component.html',
     styleUrls: ['./add-user.component.scss'],
-    standalone: true,
     imports: [FormsModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatButtonModule]
 })
 export class AddUserComponent {

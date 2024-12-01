@@ -11,11 +11,10 @@ import { of } from 'rxjs';
 // import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss'],
-  standalone: true,
-  imports: [UserCardComponent, MatCardModule],
+    selector: 'app-user-profile',
+    templateUrl: './user-profile.component.html',
+    styleUrls: ['./user-profile.component.scss'],
+    imports: [UserCardComponent, MatCardModule]
 })
 export class UserProfileComponent {
   user = toSignal(
