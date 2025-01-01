@@ -5,11 +5,10 @@ import { UserService } from '../users/user.service';
 import { Company } from './company';
 
 @Component({
-  selector: 'app-company-list',
-  standalone: true,
-  imports: [CompanyCardComponent],
-  templateUrl: './company-list.component.html',
-  styleUrl: './company-list.component.scss'
+    selector: 'app-company-list',
+    imports: [CompanyCardComponent],
+    templateUrl: './company-list.component.html',
+    styleUrl: './company-list.component.scss'
 })
 export class CompanyListComponent {
   companies: Signal<Company[]> = toSignal(this.userService.getCompanies());

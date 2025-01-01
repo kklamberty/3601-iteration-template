@@ -30,27 +30,26 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
  * makes the most sense to do the filtering.
  */
 @Component({
-  selector: 'app-user-list-component',
-  templateUrl: 'user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
-  providers: [],
-  standalone: true,
-  imports: [
-    AsyncPipe,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatRadioModule,
-    UserCardComponent,
-    MatListModule,
-    RouterLink,
-    MatButtonModule,
-    MatTooltipModule,
-    MatIconModule,
-  ],
+    selector: 'app-user-list-component',
+    templateUrl: 'user-list.component.html',
+    styleUrls: ['./user-list.component.scss'],
+    providers: [],
+    imports: [
+        AsyncPipe,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatRadioModule,
+        UserCardComponent,
+        MatListModule,
+        RouterLink,
+        MatButtonModule,
+        MatTooltipModule,
+        MatIconModule,
+    ]
 })
 export class UserListComponent {
   userName = signal<string | undefined>(undefined);
