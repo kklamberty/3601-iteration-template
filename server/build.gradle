@@ -32,25 +32,25 @@ dependencies {
   implementation 'io.javalin:javalin:6.3.0'
 
   // Mongo DB Driver for Java
-  implementation 'org.mongodb:mongodb-driver-sync:5.1.4'
+  implementation 'org.mongodb:mongodb-driver-sync:5.2.1'
 
   // MongoJack, MongoDB integration for Jackson
-  implementation 'org.mongojack:mongojack:5.0.1'
+  implementation 'org.mongojack:mongojack:5.0.2'
 
   // Simple Logging Facade for Java
   implementation 'org.slf4j:slf4j-simple:2.0.16'
 
   // JUnit Jupiter API for testing.
-  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.0'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
 
   // JUnit Jupiter Engine for testing.
-  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
 
   // JUnit Platform Launcher for testing.
   testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
   // Mockito for testing
-  testImplementation 'org.mockito:mockito-core:5.13.0'
+  testImplementation 'org.mockito:mockito-core:5.14.2'
 
   testImplementation 'com.mockrunner:mockrunner-servlet:2.0.7'
 }
