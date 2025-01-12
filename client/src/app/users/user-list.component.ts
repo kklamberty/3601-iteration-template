@@ -16,7 +16,6 @@ import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
 import { User, UserRole } from './user';
 import { UserCardComponent } from './user-card.component';
 import { UserService } from './user.service';
-import { AsyncPipe } from '@angular/common';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 /**
@@ -35,7 +34,6 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
   styleUrls: ['./user-list.component.scss'],
   providers: [],
   imports: [
-    AsyncPipe,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
