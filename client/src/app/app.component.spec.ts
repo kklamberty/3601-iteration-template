@@ -5,7 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -13,7 +13,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
     imports: [
         BrowserAnimationsModule,
-        RouterModule.forRoot([]),
+        RouterTestingModule,
         MatToolbarModule,
         MatIconModule,
         MatSidenavModule,
