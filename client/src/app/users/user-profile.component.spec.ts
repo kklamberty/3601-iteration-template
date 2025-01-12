@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
-import { ActivatedRoute } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { throwError } from 'rxjs';
 import { ActivatedRouteStub } from '../../testing/activated-route-stub';
 import { MockUserService } from '../../testing/user.service.mock';
