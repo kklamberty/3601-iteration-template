@@ -772,7 +772,7 @@ class UserControllerSpec {
     // MongoDB ID for that user.
     assertNotEquals("", addedUser.get("_id"));
     // The new user in the database (`addedUser`) should have the same
-    // field values as the user we asked it to add (`newuser`).
+    // field values as the user we asked it to add (`newUser`).
     assertEquals(newUser.name, addedUser.get("name"));
     assertEquals(newUser.age, addedUser.get(UserController.AGE_KEY));
     assertEquals(newUser.company, addedUser.get(UserController.COMPANY_KEY));
@@ -1154,7 +1154,7 @@ class UserControllerSpec {
 
   /**
    * Test that the `generateAvatar` throws a `NoSuchAlgorithmException`
-   * if it can't find the `md5` hashing algortihm.
+   * if it can't find the `md5` hashing algorithm.
    *
    * To test this code, we need to mock out the `md5()` method so we
    * can control what it returns. In particular, we want `.md5()` to
