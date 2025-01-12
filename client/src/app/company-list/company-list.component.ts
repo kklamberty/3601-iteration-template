@@ -6,7 +6,6 @@ import { Company } from './company';
 
 @Component({
   selector: 'app-company-list',
-  standalone: true,
   imports: [CompanyCardComponent],
   templateUrl: './company-list.component.html',
   styleUrl: './company-list.component.scss'

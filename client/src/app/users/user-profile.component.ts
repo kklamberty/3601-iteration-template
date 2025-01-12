@@ -14,7 +14,6 @@ import { of } from 'rxjs';
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
-  standalone: true,
   imports: [UserCardComponent, MatCardModule],
 })
 export class UserProfileComponent {
