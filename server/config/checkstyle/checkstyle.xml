@@ -96,12 +96,12 @@
   <!--   <property name="fileExtensions" value="java"/> -->
   <!-- </module> -->
 
-  <!-- Allows us to suppress warnings with @SupressWarnings annotations. -->
+  <!-- Allows us to suppress warnings with @SuppressWarnings annotations. -->
   <!-- Requires the "SuppressWarningsHolder" module below in the "TreeWalker" section. -->
   <module name="SuppressWarningsFilter" />
 
   <module name="TreeWalker">
-    <!-- Allows us to suppress warnings with @SupressWarnings annotations. -->
+    <!-- Allows us to suppress warnings with @SuppressWarnings annotations. -->
     <!-- Also requires the "SuppressWarningsFilter" module above. -->
     <module name="SuppressWarningsHolder" />
 
