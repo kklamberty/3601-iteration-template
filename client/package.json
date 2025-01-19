@@ -23,7 +23,7 @@
     "@angular/material": "^19.0.5",
     "@angular/platform-browser": "^19.0.6",
     "@angular/platform-browser-dynamic": "^19.0.6",
-    "@angular/router": "^19.0.6",
+    "@angular/router": "^19.1.1",
     "ngxtension": "^4.2.1",
     "rxjs": "^7.8.0",
     "tslib": "^2.4.0",
