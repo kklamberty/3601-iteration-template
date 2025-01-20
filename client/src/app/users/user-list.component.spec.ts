@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MockUserService } from '../../testing/user.service.mock';
 import { User } from './user';
@@ -38,7 +38,7 @@ const COMMON_IMPORTS: unknown[] = [
   MatIconModule,
   MatSnackBarModule,
   BrowserAnimationsModule,
-  RouterTestingModule,
+  RouterModule.forRoot([]),
 ];
 
 describe('User list', () => {
@@ -119,6 +119,7 @@ describe('Misbehaving User List', () => {
 
   let userServiceStub: {
     getUsers: () => Observable<User[]>;
+    filterUsers: () => User[];
   };
 
   beforeEach(() => {
@@ -128,6 +129,7 @@ describe('Misbehaving User List', () => {
         new Observable((observer) => {
           observer.error('getUsers() Observer generates an error');
         }),
+      filterUsers: () => []
     };
 
     TestBed.configureTestingModule({
