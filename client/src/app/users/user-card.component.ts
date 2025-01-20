@@ -10,7 +10,6 @@ import { User } from './user';
     selector: 'app-user-card',
     templateUrl: './user-card.component.html',
     styleUrls: ['./user-card.component.scss'],
-    standalone: true,
     imports: [MatCardModule, MatButtonModule, MatListModule, MatIconModule, RouterLink]
 })
 export class UserCardComponent {
