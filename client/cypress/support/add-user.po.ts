@@ -37,7 +37,7 @@ export class AddUserPage {
   }
 
   getSnackBar() {
-    // Since snackbars are often shown in response to errors,
+    // Since snackBars are often shown in response to errors,
     // we'll add a timeout of 10 seconds to help increase the likelihood that
     // the snackbar becomes visible before we might fail because it
     // hasn't (yet) appeared.

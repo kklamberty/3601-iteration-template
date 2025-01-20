@@ -16,7 +16,6 @@ import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
 import { User, UserRole } from './user';
 import { UserCardComponent } from './user-card.component';
 import { UserService } from './user.service';
-import { AsyncPipe } from '@angular/common';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 /**
@@ -35,7 +34,6 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
   styleUrls: ['./user-list.component.scss'],
   providers: [],
   imports: [
-    AsyncPipe,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -130,7 +128,7 @@ export class UserListComponent {
 
   // No need for fancy RXJS stuff. We do the fancy RXJS stuff where we call `toSignal`, i.e., up in
   // the definition of `serverFilteredUsers` above.
-  // `computed()` takes the value of one or more signals (`serverfilteredUsers` in this case) and
+  // `computed()` takes the value of one or more signals (`serverFilteredUsers` in this case) and
   // _computes_ the value of a new signal (`filteredUsers`). Angular recognizes when any signals
   // in the function passed to `computed()` change, and will then call that function to generate
   // the new value of the computed signal.
