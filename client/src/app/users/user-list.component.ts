@@ -34,7 +34,6 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
   templateUrl: 'user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
   providers: [],
-  standalone: true,
   imports: [
     AsyncPipe,
     MatCardModule,
